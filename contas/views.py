@@ -19,8 +19,8 @@ def nova_transacao(request):
     form = TransacaoForm(request.POST or None)
 
     if form.is_valid():
-        form.save()
-        return redirect('url_listagem')
+        transacao = form.save()
+        return redirect('url_listagem')  # redireciona para listagem
 
     data['form'] = form
     return render(request, 'contas/form.html', data)
